@@ -26,6 +26,7 @@ namespace CarService.WebAPI
         {
             services.AddScoped<ICarsService, CarsService>();
             services.AddDbContext<CarContext>(options => options.UseLazyLoadingProxies().UseSqlite($"Data Source={DatabaseFileName}"));
+            services.AddMemoryCache();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddControllers();
         }
