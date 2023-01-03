@@ -62,7 +62,7 @@ namespace CarService.WebAPI.Controllers
             {
                 cars.Remove(car);
                 _cache.Remove(cacheKey);
-                 _cache.Set(cacheKey, cars, new TimeSpan(1,0,1));
+                  _cache.Set(cacheKey, cars, DateTimeOffset.Now.AddDays(1));
             }
             await _carsService.Delete(car);
             return NoContent();
