@@ -39,7 +39,7 @@ namespace CarService.WebAPI.Controllers
             {
                 await Task.Delay(2000);
                 cars = await _carsService.Get(null, filters);
-                _cache.Set(cacheKey, cars, new TimeSpan(1,0,1));
+                _cache.Set(cacheKey, cars, DateTimeOffset.Now.AddDays(1));
             }    
             return Ok(cars);
         }
